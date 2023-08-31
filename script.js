@@ -1,5 +1,8 @@
-async function getQuote() {
+(async function getQuote() {
   const response = await fetch('https://api.kanye.rest/');
-  const data = await response.json();
-  return data.quote;
-}
+  const { quote } = await response.json();
+  document.getElementsByClassName('quote').innerHTML = quote;
+  await getQuote();
+})();
+
+
